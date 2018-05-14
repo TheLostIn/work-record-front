@@ -261,12 +261,13 @@
                         // })
                         console.log(this.releaseForm)
                         console.log(token)
+                        console.log(JSON.stringify( this.releaseForm.wages ))
                         this.$ajax.get(this.$domin + '/?_action=releaseWork&token='+token
                             // + '&token='+ this.releaseForm.token
                             // + '&target_group='+ this.releaseForm.target_group
                             + '&address='+ this.releaseForm.address
                             + '&phone='+ this.releaseForm.phone
-                            + '&wages='+ this.releaseForm.wages
+                            + '&wages='+ JSON.stringify( this.releaseForm.wages )
                             + '&house='+ this.releaseForm.house
                             + '&welfare='+ this.releaseForm.welfare
                             + '&start_time='+ this.releaseForm.start_time

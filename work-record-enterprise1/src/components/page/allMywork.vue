@@ -20,7 +20,8 @@
             <div :data="works" class="card">
                 <el-card  v-for="work in works" :key="work" class="box-card">
                     <div slot="header" class="clearfix">
-                        <span>{{ work.field}}</span>
+                            
+                        <span>{{ work.id}}</span>
                        <div v-if="work.should_upload==true">
                             <div v-if="work.expired==false">
                                 <div v-if="work.has_upload==true">
@@ -39,45 +40,19 @@
                        </div>
                         
                     </div>
-                    <div  class="text item">
-                        task_id: {{ work.task_id }}
-                    </div>
-                    <div  class="text item">
-                        工作类型: {{ work.field }}
-                    </div>
-                    <div  class="text item">
-                        薪水: {{ work.wage }}
-                    </div>
-                    <div  class="text item">
-                        地点: {{ work.address }}
-                    </div>
-                    <div  class="text item">
-                        手机号码: {{ work.phone }}
-                    </div>
-                    <div  class="text item">
-                        住房: {{ work.house }}
-                    </div>
-                    <div  class="text item">
-                        补贴: {{ work.welfare }}
-                    </div>
-                    <div  class="text item">
-                        开始时间: {{ work.start_time }}
-                    </div>
-                    <div  class="text item">
-                        公司id: {{ work.company_id }}
-                    </div>
+
                     <div class="text item">
                         
-                            <div class="text item">公司信息</div>
-                            <div class="text item">公司名: {{ work.comapny_info.name }}</div>
-                            <div class="text item">电话: {{ work.comapny_info.phone }}</div>
-                            <div class="text item">邮箱: {{ work.comapny_info.mail }}</div>
-                            <div class="text item">地址: {{ work.comapny_info.address }}</div>
-                            <div class="text item">企业号: {{ work.comapny_info.number }}</div>
+                            <div class="text item">工作信息</div>
+                            <div class="text item">地址: {{ work.address }}</div>
+                            <div class="text item">电话: {{ work.phone }}</div>
+                            <div class="text item">住房: {{ work.house }}</div>
+                            <div class="text item">福利: {{ work.welfare }}</div>
+                            <div class="text item">开始时间: {{ (new Date(work.start_time*1000)).Format("yyyy-M-d h:m:s.S") }}</div>
                         
                     </div>
                     <div  class="text item">
-                    <el-button type="primary" @click="getthejob(work.task_id)">我要应聘</el-button>
+                        <el-button type="primary" @click="seeapply(work.id)">查看应聘信息</el-button>
                     </div>
 
             
@@ -172,8 +147,22 @@
             this.uploadUrl = this.$domin+'/work-system/api/index.php?_action=upload&token=' + this.token;
             console.log(this.uploadUrl);
             console.log('ppppqweq');
-            // this.getData();
+            this.getData();
             //  console.log(this.works);
+        },
+        computed: {
+            data(){
+                const self = this;
+                return self.works.filter(function(d){
+                    return d;
+                    for (let i = 0; i < self.works.length; i++) {
+                        d.add_time =  (new Date(d.add_time*1000)).Format("yyyy-M-d h:m:s.S");
+                    console.log('ppplllll'+d)
+
+                    }
+                    return d;
+                })
+            }
         },
         methods: {
             handleCurrentChange(val){
@@ -187,8 +176,11 @@
                 console.log(val)
                 this.getData();
 
-            
-                
+            },
+            seeapply(task_id)
+            {
+                localStorage.setItem('task_id', task_id);
+                this.$router.push('/allapplybyworkid');
             },
             getthejob(task_id)
             {
@@ -231,12 +223,10 @@
             },
             getData(){
                 let token = localStorage.getItem('token');
-                var url = this.$domin + '/?_action=listWork&token='+token+'&type='+this.select_cate +'&page='+this.cur_page;
-               
+                var url = this.$domin + '/?_action=allMyWork&token='+token+'&type='+this.select_cate +'&page='+this.cur_page;
                 this.$ajax.get(url,{
-                    
                 }).then(re => {
-                    this.works = re.data.data.work;
+                    this.works = re.data.data;
                  //   console.log(re.data.data.works);
                    console.log(this.works);
                     console.log('ppp');
@@ -276,7 +266,6 @@
         });
 
       }
-           
         }
     }
 </script>

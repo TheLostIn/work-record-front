@@ -77,6 +77,16 @@
                         index: 'recordtime',
                         title: '工时记录'
                     },
+                    {
+                        icon: 'el-icon-upload2',
+                        index: 'allmywork',
+                        title: '发布的所有工作'
+                    },
+                    // {
+                    //     icon: 'el-icon-upload2',
+                    //     index: 'allapplybyworkid',
+                    //     title: '应聘工作的人'
+                    // },
                     // {
                     //     icon: 'el-icon-menu',
                     //     index: '2',

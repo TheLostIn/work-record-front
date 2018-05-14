@@ -35,6 +35,10 @@ export default new Router({
                     component: resolve => require(['../components/page/seekWork.vue'], resolve)
                 },
                 {
+                    path: '/listapplyjob',
+                    component: resolve => require(['../components/page/listApplyjob.vue'], resolve)
+                },
+                {
                     path: '/news',
                     component: resolve => require(['../components/page/News.vue'], resolve)
                 },

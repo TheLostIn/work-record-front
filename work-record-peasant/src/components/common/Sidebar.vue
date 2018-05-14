@@ -77,6 +77,11 @@
                         index: 'seekwork',
                         title: '查找工作'
                     },
+                    {
+                        icon: 'el-icon-setting',
+                        index: 'listapplyjob',
+                        title: '已申请工作'
+                    },
                     // {
                     //     icon: 'el-icon-menu',
                     //     index: '2',

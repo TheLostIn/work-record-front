@@ -40,40 +40,23 @@
                         
                     </div>
                     <div  class="text item">
-                        task_id: {{ work.task_id }}
+                        work: {{ work.work_id }}
                     </div>
                     <div  class="text item">
-                        工作类型: {{ work.field }}
+                        申请状态: {{ work.status==0?'已申请':work.status==1?'公司已录用':'公司拒绝' }}
                     </div>
                     <div  class="text item">
-                        薪水: {{ work.wage }}
-                    </div>
-                    <div  class="text item">
-                        地点: {{ work.address }}
-                    </div>
-                    <div  class="text item">
-                        手机号码: {{ work.phone }}
-                    </div>
-                    <div  class="text item">
-                        住房: {{ work.house }}
-                    </div>
-                    <div  class="text item">
-                        补贴: {{ work.welfare }}
-                    </div>
-                    <div  class="text item">
-                        开始时间: {{ work.start_time }}
-                    </div>
-                    <div  class="text item">
-                        公司id: {{ work.company_id }}
+                        add_time: {{ (new Date(work.add_time*1000)).Format("yyyy-M-d h:m:s.S") }}
                     </div>
                     <div class="text item">
                         
-                            <div class="text item">公司信息</div>
-                            <div class="text item">公司名: {{ work.comapny_info.name }}</div>
-                            <div class="text item">电话: {{ work.comapny_info.phone }}</div>
-                            <div class="text item">邮箱: {{ work.comapny_info.mail }}</div>
-                            <div class="text item">地址: {{ work.comapny_info.address }}</div>
-                            <div class="text item">企业号: {{ work.comapny_info.number }}</div>
+                            <div class="text item">工作信息</div>
+                            <div class="text item">地址: {{ work.task_info.address }}</div>
+                            <div class="text item">电话: {{ work.task_info.phone }}</div>
+                            <div class="text item">住房: {{ work.task_info.house }}</div>
+                            <div class="text item">福利: {{ work.task_info.welfare }}</div>
+                            <div class="text item">开始时间: {{ (new Date(work.task_info.start_time*1000)).Format("yyyy-M-d h:m:s.S") }}</div>
+                            <div class="text item">企业号: {{ work.task_info.company_id }}</div>
                         
                     </div>
                     <div  class="text item">
@@ -172,8 +155,22 @@
             this.uploadUrl = this.$domin+'/work-system/api/index.php?_action=upload&token=' + this.token;
             console.log(this.uploadUrl);
             console.log('ppppqweq');
-            // this.getData();
+            this.getData();
             //  console.log(this.works);
+        },
+        computed: {
+            data(){
+                const self = this;
+                return self.works.filter(function(d){
+                    return d;
+                    for (let i = 0; i < self.works.length; i++) {
+                        d.add_time =  (new Date(d.add_time*1000)).Format("yyyy-M-d h:m:s.S");
+                    console.log('ppplllll'+d)
+
+                    }
+                    return d;
+                })
+            }
         },
         methods: {
             handleCurrentChange(val){
@@ -231,12 +228,12 @@
             },
             getData(){
                 let token = localStorage.getItem('token');
-                var url = this.$domin + '/?_action=listWork&token='+token+'&type='+this.select_cate +'&page='+this.cur_page;
+                var url = this.$domin + '/?_action=listApplyJob&token='+token+'&type='+this.select_cate +'&page='+this.cur_page;
                
                 this.$ajax.get(url,{
                     
                 }).then(re => {
-                    this.works = re.data.data.work;
+                    this.works = re.data.data.apply_work;
                  //   console.log(re.data.data.works);
                    console.log(this.works);
                     console.log('ppp');
@@ -276,7 +273,6 @@
         });
 
       }
-           
         }
     }
 </script>

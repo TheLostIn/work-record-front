@@ -75,8 +75,16 @@ export default new Router({
                     component: resolve => require(['../components/page/WorkRelease.vue'], resolve)    // 上传作业组件
                 },
                 {
+                    path: '/allapplybyworkid',
+                    component: resolve => require(['../components/page/allApplybyworkid.vue'], resolve)    // 上传作业组件
+                },
+                {
                     path: '/recordtime',
                     component: resolve => require(['../components/page/Recordtime.vue'], resolve)    // 上传作业组件
+                },
+                {
+                    path: '/allmywork',
+                    component: resolve => require(['../components/page/allMywork.vue'], resolve)    // 上传作业组件
                 },
                 {
                     path: '/download',
