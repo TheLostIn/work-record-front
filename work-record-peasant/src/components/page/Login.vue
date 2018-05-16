@@ -1,18 +1,20 @@
 <template>
     <div class="login-wrap">
-        <div class="ms-title">222peasant作业提交系统</div>
+        <div class="ms-title">民工系统</div>
         <div class="ms-login">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
                 <el-form-item prop="username">
-                    <el-input v-model="ruleForm.username" placeholder="username"></el-input>
+                    <el-input v-model="ruleForm.username" placeholder="用户名"></el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input type="password" placeholder="password" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')"></el-input>
+                    <el-input type="password" placeholder="密码" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')"></el-input>
                 </el-form-item>
                 <div class="login-btn">
                     <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
                 </div>
-                <p style="font-size:12px;line-height:30px;color:#999;">Tips : 教务处账号密码登陆</p>
+                <div class="login-btn">
+                    <el-button type="primary" @click="jumptosignup()">注册</el-button>
+                </div>
             </el-form>
         </div>
     </div>
@@ -39,12 +41,15 @@
             }
         },
         methods: {
+            jumptosignup(){
+                this.$router.push('/signup');
+            },
             submitForm1(formName) {
                 const self = this;
                 self.$refs[formName].validate((valid) => {
                     if (valid) {
                         localStorage.setItem('ms_username',self.ruleForm.username);
-                        self.$router.push('/readme');
+                        self.$router.push('/seerecord');
                     } else {
                         console.log('error submit!!');
                         return false;
@@ -128,7 +133,9 @@
         text-align: center;
     }
     .login-btn button{
-        width:100%;
+        width:40%;
+        float:left;
+        margin-left:20px;
         height:36px;
     }
 </style>

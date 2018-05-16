@@ -48,7 +48,8 @@
                             <div class="text item">电话: {{ work.phone }}</div>
                             <div class="text item">住房: {{ work.house }}</div>
                             <div class="text item">福利: {{ work.welfare }}</div>
-                            <div class="text item">开始时间: {{ (new Date(work.start_time*1000)).Format("yyyy-M-d h:m:s.S") }}</div>
+                            <!-- <div class="text item">开始时间: {{ (new Date(work.start_time*1000)).Format("yyyy-M-d h:m:s.S") }}</div> -->
+                            <div class="text item">开始时间: {{ work.start_time }}</div>
                         
                     </div>
                     <div  class="text item">

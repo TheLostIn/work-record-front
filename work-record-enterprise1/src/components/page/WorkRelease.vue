@@ -61,7 +61,7 @@
                         {{tag.type}}: {{tag.wage}}元
                     </el-tag>
                 </el-form-item>
-                <el-form-item prop="curexperience">         
+                <el-form-item prop="curexperience" label="从业经验">         
                     <el-select  v-model="value" placeholder="从业经验">
                         <el-option
                         v-for="item in allexperiences"
@@ -177,7 +177,7 @@
                 this.inputValue = '';
             },
             handleClose(tag) {
-                this.work_form.target_stu.splice(this.work_form.target_stu.indexOf(tag), 1);
+                this.releaseForm.wages.splice(this.releaseForm.wages.indexOf(tag), 1);
             },
             getByteam(){
                 const self = this;

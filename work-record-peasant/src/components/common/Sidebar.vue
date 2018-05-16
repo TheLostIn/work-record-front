@@ -39,34 +39,34 @@
             return {
                 usrl:'',
                 has_email: localStorage.getItem('has_email'),
-                email_items:[
-                    {
-                        icon: 'el-icon-setting',
-                        index: 'readme',
-                        title: '公告'
-                    },
-                    {
-                        icon: 'el-icon-setting',
-                        index: 'personalinfo',
-                        title: '个人信息'
-                    }
-                ],
+                // email_items:[
+                //     {
+                //         icon: 'el-icon-setting',
+                //         index: 'readme',
+                //         title: '公告'
+                //     },
+                //     {
+                //         icon: 'el-icon-setting',
+                //         index: 'personalinfo',
+                //         title: '个人信息'
+                //     }
+                // ],
                 items: [
-                    {
-                        icon: 'el-icon-setting',
-                        index: 'news',
-                        title: '作业列表'
-                    },
-                    {
-                        icon: 'el-icon-setting',
-                        index: 'personalinfo',
-                        title: '个人信息'
-                    },
-                    {
-                        icon: 'el-icon-setting',
-                        index: 'readme',
-                        title: '我要发布作业'
-                    },
+                    // {
+                    //     icon: 'el-icon-setting',
+                    //     index: 'news',
+                    //     title: '作业列表'
+                    // },
+                    // {
+                    //     icon: 'el-icon-setting',
+                    //     index: 'personalinfo',
+                    //     title: '个人信息'
+                    // },
+                    // {
+                    //     icon: 'el-icon-setting',
+                    //     index: 'readme',
+                    //     title: '我要发布作业'
+                    // },
                     {
                         icon: 'el-icon-setting',
                         index: 'seerecord',
@@ -137,27 +137,27 @@
         
         created(){
             this.token = localStorage.getItem('token');
-            this.url = this.$domin+'/work-system/api/index.php?_action=admin&action_type=check_is_admin&token='+this.token;
-                let self = this;
-                    self.$axios.post(self.url, {page:self.cur_page}).then((res) => {
-                    var work_release = {
-                        icon: 'el-icon-upload2',
-                        index: 'work-release',
-                        title: '作业发布'
-                    };
-                    var admin = {
-                        icon: 'el-icon-setting',
-                        index: 'admin',
-                        title: '管理员'
-                    };
-                    if(res.data.data)
-                    {
-                        this.items.push(work_release);
-                        this.items.push(admin);
-                        console.log('ok');
-                    }
-                    console.log(this.items);
-                })
+            // this.url = this.$domin+'/work-system/api/index.php?_action=admin&action_type=check_is_admin&token='+this.token;
+            //     let self = this;
+            //         self.$axios.post(self.url, {page:self.cur_page}).then((res) => {
+            //         var work_release = {
+            //             icon: 'el-icon-upload2',
+            //             index: 'work-release',
+            //             title: '作业发布'
+            //         };
+            //         var admin = {
+            //             icon: 'el-icon-setting',
+            //             index: 'admin',
+            //             title: '管理员'
+            //         };
+            //         if(res.data.data)
+            //         {
+            //             this.items.push(work_release);
+            //             this.items.push(admin);
+            //             console.log('ok');
+            //         }
+            //         console.log(this.items);
+            //     })
         },
         computed:{
             onRoutes(){

@@ -6,28 +6,15 @@
                 <el-breadcrumb-item>基础表格</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
-        <div class="handle-box">
-            <el-button type="primary" icon="el-icon-download" class="handle-del mr10" @click="downloadAll">批量下载(未上传作业自动提醒)</el-button>
-            <el-select  v-model="select_cate" placeholder="作业id" @change="selectionchange" class="handle-select mr10">
-                <el-option v-for="work in work_ids" :key="work.id" :label="work.work_name" :value="work.id"></el-option>
-                <!-- <el-option key="2" label="湖南省" value="湖南省"></el-option> -->
-            </el-select>
-            <el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>
-            <el-button type="primary" icon="search" @click="search">搜索</el-button>
-        </div>
         <el-table :data="data" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55"></el-table-column>
-            <el-table-column prop="work_id" label="work_id">
+            <el-table-column prop="work_id" label="工作id">
             </el-table-column>
-            <el-table-column prop="num" label="num" sortable width="150">
+            <el-table-column prop="num" label="时长（小时）" sortable width="150">
             </el-table-column>
-            <el-table-column prop="date" label="date" sortable width="150">
+            <el-table-column prop="date" label="时间" sortable width="150">
             </el-table-column>
-            <el-table-column prop="add_time" label="add_time" sortable width="150">
-            </el-table-column>
-            <!-- <el-table-column prop="has_uplaod" label="是否已提交" sortable width="150">
-            </el-table-column> -->
-            <el-table-column prop="提醒提交" label="提醒提交" width="120">
+            <el-table-column prop="add_time" label="添加时间" sortable width="150">
             </el-table-column>
 
         </el-table>

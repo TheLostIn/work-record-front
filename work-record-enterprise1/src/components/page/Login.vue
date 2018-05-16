@@ -1,6 +1,6 @@
 <template>
     <div class="login-wrap">
-        <div class="ms-title">111作业提交系统</div>
+        <div class="ms-title">企业管理系统</div>
         <div class="ms-login">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
                 <el-form-item prop="username">
@@ -12,7 +12,9 @@
                 <div class="login-btn">
                     <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
                 </div>
-                <p style="font-size:12px;line-height:30px;color:#999;">Tips : 教务处账号密码登陆</p>
+                <div class="login-btn">
+                    <el-button type="primary" @click="jumptosignup()">注册</el-button>
+                </div>
             </el-form>
         </div>
     </div>
@@ -39,6 +41,9 @@
             }
         },
         methods: {
+            jumptosignup(){
+                this.$router.push('/signup');
+            },
             submitForm1(formName) {
                 const self = this;
                 self.$refs[formName].validate((valid) => {
@@ -128,7 +133,9 @@
         text-align: center;
     }
     .login-btn button{
-        width:100%;
+        width:40%;
+        float:left;
+        margin-left:20px;
         height:36px;
     }
 </style>

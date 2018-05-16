@@ -32,7 +32,7 @@
                 {{tag.experience}}: {{tag.year}}年
             </el-tag>
         </el-form-item>
-        <el-form-item prop="curexperience">         
+        <el-form-item prop="curexperience">
             <el-select  v-model="value" placeholder="从业经验">
                 <el-option
                 v-for="item in allexperiences"
@@ -41,7 +41,7 @@
                 :value="item">
                 </el-option>
             </el-select>
-            <el-input-number size="mini" :min=1 :max=50 v-model="curyear"></el-input-number>
+            <el-input type="number" size="middle" :min=1 :max=50 v-model="curyear"><template slot="append">年</template></el-input>
             <el-button type="primary" @click="addwork()">添加</el-button>
         </el-form-item>
         <el-form-item prop="password">
@@ -57,7 +57,6 @@
                 <div class="login-btn">
                     <el-button type="primary" @click="handleSignup()">注册</el-button>
                 </div>
-                <p style="font-size:12px;line-height:30px;color:#999;">Tips : 教务处账号密码登陆</p>
             </el-form>
         </div>
     </div>

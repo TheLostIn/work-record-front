@@ -1,6 +1,6 @@
 <template>
     <div class="login-wrap">
-        <div class="ms-title">农名工注册</div>
+        <div class="ms-title">企业注册</div>
         <div class="ms-login">
             <el-form :model="signupForm" :rules="rules" ref="signupForm" label-width="0px" class="demo-signupForm">
                 <el-form-item prop="name">
@@ -44,9 +44,8 @@
         </el-form-item>
 
                 <div class="login-btn">
-                    <el-button type="primary" @click="handleSignup()">登陆</el-button>
+                    <el-button type="primary" @click="handleSignup()">注册</el-button>
                 </div>
-                <p style="font-size:12px;line-height:30px;color:#999;">Tips : 教务处账号密码登陆</p>
             </el-form>
         </div>
     </div>
