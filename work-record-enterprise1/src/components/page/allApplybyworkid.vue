@@ -2,27 +2,25 @@
     <div class="table">
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-menu"></i> 表格</el-breadcrumb-item>
-                <el-breadcrumb-item>基础表格</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-menu"></i> 工作 </el-breadcrumb-item>
+                <el-breadcrumb-item>该工作民工情况</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="handle-box">
-            <!-- <el-button type="primary" icon="el-icon-download" class="handle-del mr10" @click="downloadAll">批量下载(未上传作业自动提醒)</el-button> -->
-            <el-select  v-model="select_cate" placeholder="工作id" @change="selectionchange" class="handle-select mr10">
+            <!-- <el-select  v-model="select_cate" placeholder="工作id" @change="selectionchange" class="handle-select mr10">
                 <el-option v-for="work in work_ids" :key="work.id" :label="work.work_name" :value="work.id"></el-option>
-                <!-- <el-option key="2" label="湖南省" value="湖南省"></el-option> -->
             </el-select>
             <el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>
-            <el-button type="primary" icon="search" @click="search">搜索</el-button>
+            <el-button type="primary" icon="search" @click="search">搜索</el-button> -->
         </div>
         <el-table :data="data" border style="width: 100%" ref="multipleTable">
             <el-table-column type="selection"></el-table-column>
-            <el-table-column prop="worker_id" label="worker_id">
+            <el-table-column prop="name" label="name">
             </el-table-column>
-            <el-table-column prop="id" label="id" sortable >
-            </el-table-column>
-            <el-table-column prop="status" label="status" width="150">
-            </el-table-column>
+            <!-- <el-table-column prop="id" label="id" sortable >
+            </el-table-column> -->
+            <!-- <el-table-column prop="status" label="status" width="150">
+            </el-table-column> -->
             <!-- <el-table-column prop="add_time" label="add_time" sortable width="150">
             </el-table-column> -->
             <!-- <el-table-column prop="has_uplaod" label="是否已提交" sortable width="150">
@@ -140,7 +138,7 @@ const getFile = url => {
                             + '&id='+ row.worker_id
                             + '&date='+ row.date
                             + '&num='+ row.num
-                            + '&work_id='+ row.id
+                            + '&work_id='+ row.work_id
                             + '&type=0'
                         ).then(re => {
                             console.log(re.data);

@@ -54,12 +54,9 @@
                             <div class="text item">电话: {{ work.task_info.phone }}</div>
                             <div class="text item">住房: {{ work.task_info.house }}</div>
                             <div class="text item">福利: {{ work.task_info.welfare }}</div>
-                            <div class="text item">开始时间: {{ (new Date(work.task_info.start_time*1000)).Format("yyyy-M-d h:m:s.S") }}</div>
+                            <div class="text item">开始时间: {{ work.task_info.start_time }}</div>
                             <div class="text item">企业号: {{ work.task_info.company_id }}</div>
                         
-                    </div>
-                    <div  class="text item">
-                    <el-button type="primary" @click="getthejob(work.task_id)">我要应聘</el-button>
                     </div>
 
             

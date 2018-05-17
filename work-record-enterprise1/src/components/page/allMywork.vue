@@ -9,8 +9,7 @@
             <h3>工作列表</h3>
             <article>
             <div class="handle-box">
-                <el-button type="primary" icon="el-icon-download" class="handle-del mr10">批量下载(未上传作业自动提醒)</el-button>
-                <el-select  v-model="select_cate" placeholder="作业id" @change="selectionchange" class="handle-select mr10">
+                <el-select  v-model="select_cate" placeholder="工作类型" @change="selectionchange" class="handle-select mr10">
                     <el-option v-for="work in allexperiences" :key="work" :label="work" :value="work"></el-option>
                     <!-- <el-option key="2" label="湖南省" value="湖南省"></el-option> -->
                 </el-select>

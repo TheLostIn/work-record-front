@@ -1,30 +1,4 @@
 <template>
-<!-- +```
-+## 3. 公司发布工作（get）
-+### 接口地址
-+http://api.logicjake.xyz/work-record/?_action=releaseWork
-+### 接口参数
-+| key        | value   |
-+| :------:   | :-----: |
-+| token       | e6971f7a692cbaa8b37aa7ad32875aaf       |
-+|address|南京|
-+|phone|13222222|
-+|wages|[{"type":"家装主材安装","wage":100},{"type":"电器安装维修","wage":110}]|
-+|house|板房|
-+|welfare|高温补贴|
-+### 说明
-+* wages为招聘工种和对应工资  
-+* house为住房条件
-+* welfare为福利 
-+### 返回值
-+#### 成功，status=1
-+```
-+{
-+    "code": 0,
-+    "data": {
-+        "status": 1
-+    }
-+} -->
     <div>
         <div class="crumbs">
             <el-breadcrumb separator="/">
@@ -70,7 +44,7 @@
                         :value="item">
                         </el-option>
                     </el-select>
-                    <el-input-number size="mini" :min=1 :max=50 v-model="curwage"></el-input-number>
+                    <el-input-number size="mini" :min=1 :max=9999 v-model="curwage"></el-input-number>
                     <el-button type="primary" @click="addwork()">添加</el-button>
                 </el-form-item>
                
@@ -277,11 +251,11 @@
                             console.log(re);
                             if(re.data.code == 0){
                                 //localStorage.setItem('ms_username',self.rule_Form.username);
-                                self.$router.push('/news');
-                                this.$message.success('作业发布成功');
+                                self.$router.push('/work-release');
+                                this.$message.success('工作发布成功');
                             }else{
                                  //self.$router.push('/readme');
-                                this.$message.error('发布作业失败~');
+                                this.$message.error('发布工作失败~');
                             }
                         })
                     }

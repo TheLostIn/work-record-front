@@ -76,7 +76,7 @@
                                 localStorage.setItem('token', res.data.data.token)
                                 this.loading = false
                                 this.$message.success('登陆成功~')
-                                this.$router.push('/readme');
+                                this.$router.push('/allmywork');
                             } else if (res.data.data.status === 0) {
                                 this.$message.error('该手机号未注册~')
                             } else if (res.data.data.status === -1) {
