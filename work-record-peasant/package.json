@@ -22,7 +22,8 @@
     "vue-router": "^2.3.1",
     "vue-schart": "^0.1.2",
     "vue-simplemde": "0.3.8",
-    "vue-upload-file": "^1.1.0"
+    "vue-upload-file": "^1.1.0",
+    "xlsx": "^0.12.13"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -45,6 +46,7 @@
     "http-proxy-middleware": "^0.17.3",
     "opn": "^4.0.2",
     "ora": "^1.2.0",
+    "script-loader": "^0.7.2",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "url-loader": "^0.5.8",

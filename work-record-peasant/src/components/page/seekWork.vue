@@ -13,6 +13,10 @@
                     <el-option v-for="work in allexperiences" :key="work" :label="work" :value="work"></el-option>
                     <!-- <el-option key="2" label="湖南省" value="湖南省"></el-option> -->
                 </el-select>
+                <el-select  v-model="select_cate" placeholder="推荐工作" @change="selectionchange" class="handle-select mr10">
+                    <el-option v-for="work in allexperiences" :key="work" :label="work" :value="work"></el-option>
+                    <!-- <el-option key="2" label="湖南省" value="湖南省"></el-option> -->
+                </el-select>
             </div>
             <div :data="works" class="card">
                 <el-card  v-for="work in works" :key="work" class="box-card">
@@ -158,21 +162,44 @@
                 multipleSelection: [],
                 activeName: '1',
                 token:'',
-                uploadUrl:'',
+                getRecurl:'',
                 allexperiences: ['装修施工', '建筑施工', '家装主材安装', '门窗玻璃安装', '隔墙吊顶', '家具软装维修', '电器安装维修', '家政服务', '管道疏通', '园林绿化', '路桥建设', '其他'],
                 select_word:'',
                 select_cate:'',
+                recommand:[]
             }
         },
         created(){
             this.token = localStorage.getItem('token');
-            this.uploadUrl = this.$domin+'/work-system/api/index.php?_action=upload&token=' + this.token;
-            console.log(this.uploadUrl);
+            this.getRecurl = this.$domin+'/?_action=getRecommand&token=' + this.token;
+            console.log(this.getRecurl);
             console.log('ppppqweq');
             // this.getData();
             //  console.log(this.works);
         },
         methods: {
+            getData(){
+                this.$ajax.get(this.getRecurl,{
+                }).then(re => {
+                    // this.works = re.data.data.work;
+                   console.log(re);
+                //    var flag = re.data.data.status;
+                    // if(flag == 1)
+                    // {
+                    //         this.$message.success('申请成功');
+                    // }
+                    // else if (flag==-1)
+                    // {
+                    //         this.$message.error('重复申请');
+                    // }
+                    // else
+                    // {
+                    //          this.$message.error('返回不知道是什么');
+                    // }
+                //    console.log(this.works);
+                    // console.log('ppp');
+                });
+            },
             handleCurrentChange(val){
                 this.cur_page = val;
                 this.getData();

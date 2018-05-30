@@ -17,8 +17,8 @@ Vue.prototype.$axios = axios;
 Vue.prototype.$ajax = axios;
 // Vue.prototype.$domin = 'http://localhost';
 // Vue.prototype.$domin = 'http://localhost/work-record-server'
-Vue.prototype.$domin = 'http://192.168.43.77/work-record'
-// Vue.prototype.$domin = 'http://api.logicjake.xyz/work-record'
+// Vue.prototype.$domin = 'http://192.168.43.77/work-record'
+Vue.prototype.$domin = 'http://api.logicjake.xyz/work-record'
 new Vue({
     router,
     render: h => h(App)
