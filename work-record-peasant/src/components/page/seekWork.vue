@@ -14,7 +14,7 @@
                     <!-- <el-option key="2" label="湖南省" value="湖南省"></el-option> -->
                 </el-select>
                 <el-select  v-model="select_cate" placeholder="推荐工作" @change="selectionchange" class="handle-select mr10">
-                    <el-option v-for="work in allexperiences" :key="work" :label="work" :value="work"></el-option>
+                    <el-option v-for="work in recommand" :key="work" :label="work" :value="work"></el-option>
                     <!-- <el-option key="2" label="湖南省" value="湖南省"></el-option> -->
                 </el-select>
             </div>
@@ -174,15 +174,17 @@
             this.getRecurl = this.$domin+'/?_action=getRecommand&token=' + this.token;
             console.log(this.getRecurl);
             console.log('ppppqweq');
-            // this.getData();
+            this.getrecData();
             //  console.log(this.works);
         },
         methods: {
-            getData(){
+            getrecData(){
                 this.$ajax.get(this.getRecurl,{
                 }).then(re => {
                     // this.works = re.data.data.work;
                    console.log(re);
+                   this.recommand = re.data.data;
+                //    console.log(re.data.data);
                 //    var flag = re.data.data.status;
                     // if(flag == 1)
                     // {
